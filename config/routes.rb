@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :comments
   end
   
-  root 'welcome#index'
+  root 'articles#welcome_index'
   get 'index' => 'articles#index'
   get 'contato' => 'static_pages#contato'
   get 'about' => 'static_pages#about'

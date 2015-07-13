@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title> <%= full_title(yield(:title))%></title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> <%= full_title(yield(:title))%></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Workspace" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%# Modernizr is required for Zurb Foundation %>
+    <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
-</head>
-<body>
-
-<%= render 'layouts/header' %>
-  <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </div>
-  
-
-</body>
+  </head>
+  <body>
+     
+       <%= render 'layouts/header' %>
+     
+      <div class="row">
+        <div class="large-9 columns" role="content">
+         <%= yield %>
+         </div>
+      </div>
+     
+       <%= render 'layouts/footer' %>
+  </body>
 </html>
