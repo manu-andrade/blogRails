@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users
   resources :articles do
   resources :comments
   end
   
   root 'welcome#index'
-  get 'institucional' => 'static_pages#institucional'
-  get 'artigos' => 'articles#index'
+  get 'index' => 'articles#index'
   get 'contato' => 'static_pages#contato'
   get 'about' => 'static_pages#about'
 
