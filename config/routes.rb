@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :articles do
   resources :comments
   end
   
   root 'welcome#index'
+  get 'institucional' => 'static_pages#institucional'
+  get 'artigos' => 'articles#index'
+  get 'contato' => 'static_pages#contato'
+  get 'about' => 'static_pages#about'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
